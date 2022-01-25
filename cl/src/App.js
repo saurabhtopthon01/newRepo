@@ -12,9 +12,6 @@ const App = () => {
     age: 0,
   });
   const [allPerson, setAllPerson] = useState([]);
-  console.log(allPerson);
-
-  console.log(person);
   const handleSubmit = async () => {
     await axios
       .post(`${baseURL}post`, {
@@ -22,7 +19,6 @@ const App = () => {
         age: person.age,
       })
       .then((res) => {
-        console.log(res.data);
         const { data } = res;
         allPerson.push({
           name: data.name,
@@ -42,7 +38,6 @@ const App = () => {
       await axios
         .get(`${baseURL}get`)
         .then((res) => {
-          console.log(res.data);
           setAllPerson(res.data);
         })
         .catch((err) => console.log(err));

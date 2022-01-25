@@ -3,9 +3,7 @@ import { Container, Chart } from "./styled";
 import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
 
 const Graph = (props) => {
-  console.log(props);
   const allPersons = props.allPerson;
-  console.log(allPersons);
   const allDates = allPersons.map((per) =>
     new Date(per.createdAt).toLocaleString("en-US", {
       month: "short",
@@ -13,7 +11,6 @@ const Graph = (props) => {
       year: "numeric",
     })
   );
-  console.log(allDates);
   var uniqueDates = new Map();
   allDates.forEach((dt) => {
     if (uniqueDates.has(dt)) {
@@ -28,9 +25,7 @@ const Graph = (props) => {
       });
     }
   });
-  console.log(uniqueDates);
   const allUniqueDates = [...uniqueDates.values()];
-  console.log(allUniqueDates);
   return (
     <Container>
       <Chart>
